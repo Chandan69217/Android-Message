@@ -1,3 +1,3 @@
-#Author Chandan Sharma
+# Author Chandan Sharma
 
 # Android Messaging application 
