@@ -24,8 +24,6 @@ public class MainActivity extends AppCompatActivity {
         getSupportActionBar().setTitle(0);
         ((ViewPager)findViewById(R.id.view_pager)).setAdapter(new ViewPagerAdapter(getSupportFragmentManager()));
         ((TabLayout)findViewById(R.id.home_tab_layout)).setupWithViewPager((ViewPager)findViewById(R.id.view_pager));
-
-
     }
 
     @Override

@@ -31,8 +31,6 @@ public class BroadcastReceiverSMS extends BroadcastReceiver {
             }catch (RuntimeException e){
                 Log.e("exception",e.toString());
             }
-
-
-        }
+      }
     }
 }

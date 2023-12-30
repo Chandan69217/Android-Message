@@ -9,6 +9,7 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
+import androidx.cardview.widget.CardView;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.chandan.message.R;
@@ -40,28 +41,31 @@ public class RecyclerViewAdapter extends RecyclerView.Adapter<RecyclerViewAdapte
 
     public class ViewHolder extends RecyclerView.ViewHolder {
         private ImageView MessageImage;
-        private TextView MessageTitle,MessageSubTitle;
+        private TextView MessageSender,MessageBody;
+        private CardView cardView;
 
         public ImageView getMessageImage(){
             return this.MessageImage;
         }
-        public TextView getMessageTitle(){return this.MessageTitle;}
-        public TextView getMessageSubTitle(){return this.MessageSubTitle;}
+        public TextView getMessageSender(){return this.MessageSender;}
+        public TextView getMessageBody(){return this.MessageBody;}
+        public CardView getCardView(){return this.cardView;}
 
         public void setMessageImage(int image){
             this.MessageImage.setImageResource(image);
         }
-        public void setMessageTitle(String Title){
-            this.MessageTitle.setText(Title);
+        public void setMessageSender(String Title){
+            this.MessageSender.setText(Title);
         }
-        public void setMessageSubTitle(String subTitle){
-            this.MessageSubTitle.setText(subTitle);
+        public void setMessageBody(String subTitle){
+            this.MessageBody.setText(subTitle);
         }
         public ViewHolder(@NonNull View itemView) {
             super(itemView);
             this.MessageImage = itemView.findViewById(R.id.message_img);
-            this.MessageTitle = itemView.findViewById(R.id.message_title);
-            this.MessageSubTitle = itemView.findViewById(R.id.message_subtitle);
+            this.MessageSender = itemView.findViewById(R.id.message_sender);
+            this.MessageBody = itemView.findViewById(R.id.message_body);
+            this.cardView = itemView.findViewById(R.id.root_card_mess);
         }
     }
 

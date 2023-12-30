@@ -11,10 +11,10 @@ import java.util.List;
 
 @Dao
 public interface MessageDAO {
-    @Query("SELECT * FROM messages")
+    @Query("SELECT * FROM messages ORDER BY messageID DESC")
     List<Messages> getAllMessages();
 
-    @Insert
+    @Insert()
     void insertMessage(Messages messages);
 
     @Update
