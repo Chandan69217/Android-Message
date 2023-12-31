@@ -16,6 +16,7 @@ import com.chandan.message.chat_activity.ChatActivity;
 import com.chandan.message.database.Data;
 import com.chandan.message.database.DatabaseHelper;
 import com.chandan.message.database.Messages;
+import com.chandan.message.database.Notices;
 
 import java.util.ArrayList;
 
@@ -23,7 +24,7 @@ public class MesssageRecyclerViewAdapter extends RecyclerViewAdapter implements 
     private ViewHolder holder;
     private static MesssageRecyclerViewAdapter adapter;
     private Context context;
-    public MesssageRecyclerViewAdapter(Context context) {
+    private MesssageRecyclerViewAdapter(Context context) {
         super(context);
 //        Data.getMessagesArrayList() = new ArrayList<Messages>();
         Data.setMessagesArrayList((ArrayList<Messages>) DatabaseHelper.getInstance(context).messageDAO().getAllMessages());
@@ -56,22 +57,27 @@ public class MesssageRecyclerViewAdapter extends RecyclerViewAdapter implements 
     public void onBindViewHolder(@NonNull ViewHolder holder, int position) {
         super.onBindViewHolder(holder, position);
         this.holder = holder;
-        this.holder.setMessageSender(Data.getMessagesArrayList().get(holder.getAdapterPosition()).getTitle());
-        this.holder.setMessageBody(Data.getMessagesArrayList().get(holder.getAdapterPosition()).getSubTitle());
+        this.holder.setMessageSender(Data.getMessagesArrayList().get(holder.getAdapterPosition()).getSender());
+     //   this.holder.setMessageBody(Data.getMessagesArrayList().get(holder.getAdapterPosition()).getSmsBody());
         holder.getCardView().setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                onItemClicked(Data.getMessagesArrayList().get(holder.getAdapterPosition()));
+                onMessageItemClicked(Data.getMessagesArrayList().get(holder.getAdapterPosition()));
             }
         });
         super.setAnimation(holder.itemView,holder.getAdapterPosition());
     }
 
     @Override
-    public void onItemClicked(Messages messages) {
+    public void onMessageItemClicked(Messages messages) {
         // Open Chat Activity
         Intent chatActivity = new Intent(context, ChatActivity.class);
         chatActivity.putExtra("data",messages);
         context.startActivity(chatActivity);
+    }
+
+    @Override
+    public void onNoticesItemClicked(Notices notices) {
+
     }
 }

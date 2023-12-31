@@ -26,7 +26,7 @@ public class NoticesFragment extends Fragment {
         // Inflate the layout for this fragment
         View view = inflater.inflate(R.layout.fragment_mesasge, container, false);
         ((RecyclerView)view.findViewById(R.id.recycler_view)).setLayoutManager(new LinearLayoutManager(getContext()));
-        ((RecyclerView) view.findViewById(R.id.recycler_view)).setAdapter(new NoticesRecyclerViewAdapter(getContext()));
+        ((RecyclerView) view.findViewById(R.id.recycler_view)).setAdapter(NoticesRecyclerViewAdapter.getAdapter(getContext()));
         return view;
     }
 }

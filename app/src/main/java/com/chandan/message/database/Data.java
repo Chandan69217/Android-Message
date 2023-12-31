@@ -4,9 +4,12 @@ import java.util.ArrayList;
 
 public class Data {
     private static ArrayList<Messages> messagesArrayList;
-    private static ArrayList<Messages> noticesArrayList;
+    private static ArrayList<Notices> noticesArrayList;
 
     public static ArrayList<Messages> getMessagesArrayList() {
+        if(messagesArrayList==null){
+            messagesArrayList = new ArrayList<Messages>();
+        }
         return messagesArrayList;
     }
 
@@ -14,11 +17,14 @@ public class Data {
         Data.messagesArrayList = messagesArrayList;
     }
 
-    public static ArrayList<Messages> getNoticesArrayList() {
+    public static ArrayList<Notices> getNoticesArrayList() {
+        if(noticesArrayList == null){
+            noticesArrayList = new ArrayList<Notices>();
+        }
         return noticesArrayList;
     }
 
-    public static void setNoticesArrayList(ArrayList<Messages> noticesArrayList) {
+    public static void setNoticesArrayList(ArrayList<Notices> noticesArrayList) {
         Data.noticesArrayList = noticesArrayList;
     }
 }

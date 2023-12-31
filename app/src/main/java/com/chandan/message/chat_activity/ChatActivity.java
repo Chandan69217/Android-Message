@@ -27,8 +27,8 @@ public class ChatActivity extends AppCompatActivity {
         getSupportActionBar().setTitle(0);
 
         Messages messages = getIntent().getParcelableExtra("data");
-        ((TextView)toolbar.findViewById(R.id.chat_title)).setText(messages.getTitle());
-        ((TextView)toolbar.findViewById(R.id.chat_subtitle)).setText(messages.getSubTitle());
+        ((TextView)toolbar.findViewById(R.id.chat_title)).setText(messages.getSender());
+        ((TextView)toolbar.findViewById(R.id.chat_subtitle)).setText(messages.getSmsBody());
 
     }
 

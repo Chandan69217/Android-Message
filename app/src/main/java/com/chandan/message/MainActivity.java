@@ -32,12 +32,12 @@ public class MainActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        requestRuntimePermission();
         setContentView(R.layout.activity_main);
         setSupportActionBar((androidx.appcompat.widget.Toolbar)findViewById(R.id.home_toolbar));
         getSupportActionBar().setTitle(0);
         ((ViewPager)findViewById(R.id.view_pager)).setAdapter(new ViewPagerAdapter(getSupportFragmentManager()));
         ((TabLayout)findViewById(R.id.home_tab_layout)).setupWithViewPager((ViewPager)findViewById(R.id.view_pager));
+        requestRuntimePermission();
     }
 
     private void requestRuntimePermission(){
@@ -45,7 +45,8 @@ public class MainActivity extends AppCompatActivity {
             ActivityCompat.checkSelfPermission(this,PERMISSIONS[1]) == PackageManager.PERMISSION_GRANTED &&
                 ActivityCompat.checkSelfPermission(this,PERMISSIONS[2]) == PackageManager.PERMISSION_GRANTED){
 
-
+            ((ViewPager)findViewById(R.id.view_pager)).setAdapter(new ViewPagerAdapter(getSupportFragmentManager()));
+            ((TabLayout)findViewById(R.id.home_tab_layout)).setupWithViewPager((ViewPager)findViewById(R.id.view_pager));
 
         }else if(ActivityCompat.shouldShowRequestPermissionRationale(this,PERMISSIONS[0]) &&
                 ActivityCompat.shouldShowRequestPermissionRationale(this,PERMISSIONS[1]) &&

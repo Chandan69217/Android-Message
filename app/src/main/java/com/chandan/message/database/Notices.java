@@ -8,63 +8,62 @@ import androidx.room.ColumnInfo;
 import androidx.room.Entity;
 import androidx.room.PrimaryKey;
 
-import java.util.ArrayList;
-import java.util.function.IntFunction;
-
-@Entity
-public class Messages implements Parcelable{
+@Entity(tableName = "notices")
+public class Notices implements Parcelable {
     @PrimaryKey(autoGenerate = true)
-    private int messageID;
+    private int MessageId;
     @ColumnInfo(name = "time")
     private String time;
-
     @ColumnInfo(name = "sender")
     private String sender;
-    @ColumnInfo(name = "body")
+    @ColumnInfo(name = "sms_body")
     private String smsBody;
-    public Messages(){}
 
-    public Messages(String time, String sender, String smsBody){
-        this.time = time;
-        this.sender = sender;
-        this.smsBody = smsBody;
+    public Notices() {
     }
-    public Messages(int MessageId,String time, String sender, String  smsBody){
-        this.messageID = MessageId;
+
+    public Notices(String time, String sender, String smsBody) {
         this.time = time;
         this.sender = sender;
         this.smsBody = smsBody;
     }
 
-    protected Messages(Parcel in) {
-        messageID = in.readInt();
+    public Notices(int messageId, String time, String sender, String smsBody) {
+        MessageId = messageId;
+        this.time = time;
+        this.sender = sender;
+        this.smsBody = smsBody;
+    }
+
+    protected Notices(Parcel in) {
+        MessageId = in.readInt();
         time = in.readString();
         sender = in.readString();
         smsBody = in.readString();
     }
 
-    public static final Creator<Messages> CREATOR = new Creator<Messages>() {
+    public static final Creator<Notices> CREATOR = new Creator<Notices>() {
         @Override
-        public Messages createFromParcel(Parcel in) {
-            return new Messages(in);
+        public Notices createFromParcel(Parcel in) {
+            return new Notices(in);
         }
 
         @Override
-        public Messages[] newArray(int size) {
-            return new Messages[size];
+        public Notices[] newArray(int size) {
+            return new Notices[size];
         }
     };
 
-    public int getMessageID() {
-        return messageID;
+    public int getMessageId() {
+        return MessageId;
     }
 
-    public void setMessageID(int messageID) {
-        this.messageID = messageID;
+    public void setMessageId(int messageId) {
+        MessageId = messageId;
     }
 
     public String getTime() {
-        return this.time;
+        return time;
     }
 
     public void setTime(String time) {
@@ -72,7 +71,7 @@ public class Messages implements Parcelable{
     }
 
     public String getSender() {
-        return this.sender;
+        return sender;
     }
 
     public void setSender(String sender) {
@@ -80,7 +79,7 @@ public class Messages implements Parcelable{
     }
 
     public String getSmsBody() {
-        return this.smsBody;
+        return smsBody;
     }
 
     public void setSmsBody(String smsBody) {
@@ -94,7 +93,7 @@ public class Messages implements Parcelable{
 
     @Override
     public void writeToParcel(@NonNull Parcel parcel, int i) {
-        parcel.writeInt(messageID);
+        parcel.writeInt(MessageId);
         parcel.writeString(time);
         parcel.writeString(sender);
         parcel.writeString(smsBody);
