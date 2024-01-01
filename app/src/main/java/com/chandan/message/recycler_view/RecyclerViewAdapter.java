@@ -44,11 +44,6 @@ public class RecyclerViewAdapter extends RecyclerView.Adapter<RecyclerViewAdapte
         private TextView MessageSender,MessageBody;
         private CardView cardView;
 
-        public ImageView getMessageImage(){
-            return this.MessageImage;
-        }
-        public TextView getMessageSender(){return this.MessageSender;}
-        public TextView getMessageBody(){return this.MessageBody;}
         public CardView getCardView(){return this.cardView;}
 
         public void setMessageImage(int image){

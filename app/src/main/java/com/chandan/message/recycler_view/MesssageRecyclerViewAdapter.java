@@ -58,7 +58,7 @@ public class MesssageRecyclerViewAdapter extends RecyclerViewAdapter implements 
         super.onBindViewHolder(holder, position);
         this.holder = holder;
         this.holder.setMessageSender(Data.getMessagesArrayList().get(holder.getAdapterPosition()).getSender());
-     //   this.holder.setMessageBody(Data.getMessagesArrayList().get(holder.getAdapterPosition()).getSmsBody());
+        this.holder.setMessageBody(Data.getMessagesArrayList().get(holder.getAdapterPosition()).getSmsBody());
         holder.getCardView().setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -72,6 +72,7 @@ public class MesssageRecyclerViewAdapter extends RecyclerViewAdapter implements 
     public void onMessageItemClicked(Messages messages) {
         // Open Chat Activity
         Intent chatActivity = new Intent(context, ChatActivity.class);
+        chatActivity.putExtra("type",0);
         chatActivity.putExtra("data",messages);
         context.startActivity(chatActivity);
     }

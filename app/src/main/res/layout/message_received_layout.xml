@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:minHeight="20dp"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <RelativeLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        android:layout_margin="16dp"
+        android:background="@drawable/background_chat_received"
+        app:layout_constraintWidth_percent="0.5"
+        android:minHeight="5dp"
+        android:minWidth="20dp">
+
+        <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:padding="5dp"
+        android:textColor="@color/black"
+        android:layout_alignParentStart="true"
+        android:layout_marginLeft="5dp"
+        android:id="@+id/chat_received_body"
+            android:maxEms="12"/>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="right|bottom"
+        android:ems="8"
+        android:id="@+id/chat_received_time"
+        android:textSize="12sp"
+        android:padding="10dp"
+        android:textColor="#E6E6E6"
+        android:layout_below="@id/chat_received_body"
+        android:layout_alignRight="@id/chat_received_body"/>
+    </RelativeLayout>
+</androidx.constraintlayout.widget.ConstraintLayout>

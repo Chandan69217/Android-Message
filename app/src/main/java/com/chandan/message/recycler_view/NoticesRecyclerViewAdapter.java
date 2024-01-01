@@ -62,6 +62,7 @@ public class NoticesRecyclerViewAdapter extends RecyclerViewAdapter implements O
     @Override
     public void onNoticesItemClicked(Notices notices) {
         Intent chatActivity = new Intent(context, ChatActivity.class);
+        chatActivity.putExtra("type",1);
         chatActivity.putExtra("data",notices);
         context.startActivity(chatActivity);
     }
